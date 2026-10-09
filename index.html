@@ -1,0 +1,494 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f8f4eb">
+  <meta name="description" content="Nemiza — our website is coming soon. Visit us on Instagram, Pinterest and Etsy.">
+  <title>Nemiza — Coming Soon</title>
+
+  <style>
+    :root {
+      --cream: #f8f4eb;
+      --paper: #fffdf8;
+      --clay: #a7654d;
+      --ink: #49392f;
+      --muted: #79695e;
+      --line: #e7dbcc;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      min-height: 100%;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: var(--cream);
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+    }
+
+    .site {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      width: min(1120px, calc(100% - 48px));
+      margin: 0 auto;
+      padding: 28px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .logo,
+    .logo-fallback {
+      width: 64px;
+      height: 64px;
+      flex-shrink: 0;
+      border-radius: 50%;
+    }
+
+    .logo {
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .logo-fallback {
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--clay);
+      color: var(--clay);
+      font-size: 32px;
+      font-style: italic;
+    }
+
+    .brand-name {
+      font-size: 34px;
+      letter-spacing: 0.08em;
+    }
+
+    .lang {
+      border: 1px solid var(--clay);
+      border-radius: 30px;
+      padding: 10px 15px;
+      color: var(--clay);
+      background: transparent;
+      font: 12px Arial, sans-serif;
+      letter-spacing: 0.1em;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .lang:hover,
+    .lang:focus-visible {
+      background: var(--clay);
+      color: var(--paper);
+    }
+
+    .lang:focus-visible,
+    .social:focus-visible {
+      outline: 2px solid var(--clay);
+      outline-offset: 4px;
+    }
+
+    main {
+      flex: 1;
+      display: grid;
+      place-items: center;
+      padding: 75px 24px 90px;
+    }
+
+    .content {
+      width: min(680px, 100%);
+      text-align: center;
+    }
+
+    .ornament {
+      width: 56px;
+      height: 1px;
+      background: var(--clay);
+      margin: 0 auto 32px;
+      position: relative;
+    }
+
+    .ornament::after {
+      content: "✳";
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      padding: 0 10px;
+      background: var(--cream);
+      color: var(--clay);
+      font-size: 16px;
+    }
+
+    .eyebrow {
+      margin-bottom: 20px;
+      color: var(--clay);
+      font: 11px Arial, sans-serif;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      max-width: 620px;
+      margin: 0 auto 22px;
+      font-size: clamp(42px, 7vw, 68px);
+      font-weight: 400;
+      line-height: 1.1;
+      letter-spacing: -0.035em;
+    }
+
+    .description {
+      max-width: 450px;
+      margin: 0 auto;
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.8;
+    }
+
+    .socials {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 38px;
+    }
+
+    .social {
+      min-width: 155px;
+      padding: 14px 18px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      border: 1px solid var(--clay);
+      border-radius: 2px;
+      color: var(--clay);
+      background: transparent;
+      text-decoration: none;
+      font: 12px Arial, sans-serif;
+      letter-spacing: 0.04em;
+      transition:
+        background 0.2s,
+        color 0.2s,
+        transform 0.2s;
+    }
+
+    .social:hover {
+      background: var(--clay);
+      color: var(--paper);
+      transform: translateY(-2px);
+    }
+
+    .social-icon {
+      width: 19px;
+      height: 19px;
+      flex: 0 0 19px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.7;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .social-icon .filled {
+      fill: currentColor;
+      stroke: none;
+    }
+
+    footer {
+      padding: 24px;
+      color: var(--muted);
+      text-align: center;
+      font-size: 12px;
+      letter-spacing: 0.06em;
+    }
+
+    @media (max-width: 520px) {
+      header {
+        width: calc(100% - 36px);
+        padding: 22px 0;
+      }
+
+      .brand {
+        gap: 10px;
+      }
+
+      .brand-name {
+        font-size: 27px;
+      }
+
+      .logo,
+      .logo-fallback {
+        width: 50px;
+        height: 50px;
+      }
+
+      .lang {
+        padding: 9px 11px;
+        font-size: 11px;
+      }
+
+      main {
+        padding: 60px 20px 65px;
+      }
+
+      .socials {
+        gap: 10px;
+      }
+
+      .social {
+        min-width: 145px;
+      }
+    }
+
+    @media (max-width: 360px) {
+      .brand-name {
+        font-size: 23px;
+      }
+
+      .logo,
+      .logo-fallback {
+        width: 43px;
+        height: 43px;
+      }
+
+      .social {
+        min-width: 135px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="site">
+
+    <header>
+      <a class="brand" href="#top" aria-label="Nemiza home">
+
+        <img
+          class="logo"
+          id="brandLogo"
+          src="nemiza-logo.jpg"
+          alt="Nemiza logo"
+          hidden
+        >
+
+        <span class="brand-name">Nemiza</span>
+      </a>
+
+      <button
+        class="lang"
+        id="langToggle"
+        type="button"
+        aria-label="Switch language to Polish"
+      >
+        PL / <strong>EN</strong>
+      </button>
+    </header>
+
+    <main id="top">
+      <section class="content" aria-live="polite">
+        <div class="ornament" aria-hidden="true"></div>
+
+        <p class="eyebrow" id="eyebrow">
+          A little pause before we meet
+        </p>
+
+        <h1 id="headline">
+          Something lovely is on its way.
+        </h1>
+
+        <p class="description" id="description">
+          We’re sorry — our website is still under
+          construction. In the meantime, we’d love to
+          see you on our other platforms.
+        </p>
+
+        <nav class="socials" aria-label="Social media">
+
+          <!-- Instagram -->
+          <a
+            class="social"
+            href="https://www.instagram.com/nemiza.pl?obrf=MWM5dGxjb2p1bWd3dw=="
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Instagram @nemiza.pl"
+          >
+            <svg class="social-icon"
+              viewBox="0 0 24 24" aria-hidden="true">
+              <rect x="3.5" y="3.5"
+                width="17" height="17" rx="5"/>
+              <circle cx="12" cy="12" r="4"/>
+              <circle class="filled"
+                cx="17.5" cy="6.8" r="1"/>
+            </svg>
+            <span>@nemiza.pl</span>
+          </a>
+
+          <!--
+            Pinterest: when your profile is ready,
+            replace #pinterest with its full URL
+            and remove onclick="return false".
+          -->
+          <a
+            class="social"
+            href="https://pin.it/yVpfl1VzT"
+            target="_blank"
+            id="pinterestLink"
+            rel="noopener noreferrer"
+            aria-label="Pinterest @nemizapl"
+          >
+            <svg class="social-icon"
+              viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="12" cy="12" r="9"/>
+              <path d="M10 17.8l2-8.3
+                c.3-1.4 1.1-2.2 2.2-2.2
+                1.4 0 2.1 1 1.8 2.5
+                -.4 2-1.6 4.1-3.2 4.1
+                -.8 0-1.3-.7-1.1-1.5
+                l.7-2.8"/>
+            </svg>
+            <span>@nemizapl</span>
+          </a>
+
+          <!-- Etsy -->
+          <a
+            class="social"
+            href="https://www.etsy.com/pl/shop/NemizaPL"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Etsy NemizaPL"
+          >
+            <svg class="social-icon"
+              viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M5 3.5h14v4h-1.8l-.5-2.1h-6v5h4.1
+                l.4-1.5h1.5v5.2h-1.5l-.4-1.6h-4.1v5.6h6
+                l.7-2.3H19v4.2H5v-1.5l1.5-.3V5.3L5 5V3.5Z"
+                class="filled"/>
+            </svg>
+            <span>NemizaPL</span>
+          </a>
+
+        </nav>
+      </section>
+    </main>
+
+    <footer id="footerText">
+      Made with care · Nemiza
+    </footer>
+
+  </div>
+
+  <script>
+    (() => {
+      const translations = {
+        en: {
+          eyebrow: "A little pause before we meet",
+          headline: "Something lovely is on its way.",
+          description:
+            "We’re sorry — our website is still under construction. In the meantime, we’d love to see you on our other platforms.",
+          footer: "Made with care · Nemiza",
+          label: "Switch language to Polish",
+          home: "Nemiza home",
+          socialLabel: "Social media"
+        },
+
+        pl: {
+          eyebrow: "Mała chwila, zanim się spotkamy",
+          headline: "Tworzymy coś pięknego.",
+          description:
+            "Przepraszamy — nasza strona jest jeszcze w budowie. W międzyczasie zapraszamy Cię na nasze pozostałe portale.",
+          footer: "Tworzone z sercem · Nemiza",
+          label: "Przełącz język na angielski",
+          home: "Strona główna Nemiza",
+          socialLabel: "Nasze portale społecznościowe"
+        }
+      };
+
+      let language = "en";
+
+      const button = document.getElementById("langToggle");
+
+      function renderLanguage() {
+        const text = translations[language];
+
+        document.documentElement.lang = language;
+
+        document.getElementById("eyebrow").textContent =
+          text.eyebrow;
+
+        document.getElementById("headline").textContent =
+          text.headline;
+
+        document.getElementById("description").textContent =
+          text.description;
+
+        document.getElementById("footerText").textContent =
+          text.footer;
+
+        document.querySelector(".brand").setAttribute(
+          "aria-label", text.home
+        );
+
+        document.querySelector(".socials").setAttribute(
+          "aria-label", text.socialLabel
+        );
+
+        button.setAttribute("aria-label", text.label);
+
+        button.innerHTML = language === "en"
+          ? 'PL / <strong>EN</strong>'
+          : '<strong>PL</strong> / EN';
+      }
+
+      button.addEventListener("click", () => {
+        language = language === "en" ? "pl" : "en";
+        renderLanguage();
+      });
+
+      // Show the real logo when the image loads.
+      const logo = document.getElementById("brandLogo");
+      const fallback = document.getElementById("logoFallback");
+
+      logo.addEventListener("load", () => {
+        logo.hidden = false;
+        fallback.hidden = true;
+      });
+
+      logo.addEventListener("error", () => {
+        logo.hidden = true;
+        fallback.hidden = false;
+      });
+
+      // Handle images that load from cache.
+      if (logo.complete && logo.naturalWidth > 0) {
+        logo.hidden = false;
+        fallback.hidden = true;
+      }
+
+      renderLanguage();
+    })();
+  </script>
+</body>
+</html>
